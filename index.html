@@ -102,9 +102,9 @@ font-size:22px;
 </div>
 <div class="grid">
 
-<a class="card"
-href="https://www.google.com/search?q=weather">
+<a class="card" href="https://www.google.com/search?q=weather+jaroda">
 🌦️<br>मौसम
+<p id="weather" style="font-size:14px;">जारोड़ा</p>
 </a>
 
 <a class="card"
@@ -144,6 +144,15 @@ href="tel:18001801551">
 <a href="#">📰</a>
 <a href="#">👤</a>
 </div>
-
+<script>
+fetch("https://wttr.in/Jaroda?format=%t")
+.then(response => response.text())
+.then(data => {
+document.getElementById("weather").innerHTML = data;
+})
+.catch(() => {
+document.getElementById("weather").innerHTML = "N/A";
+});
+</script>
 </body>
 </html>
